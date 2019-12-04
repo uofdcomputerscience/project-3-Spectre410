@@ -12,7 +12,7 @@
         <!--BookListViewController-->
         <scene sceneID="XVN-mk-II5">
             <objects>
-                <viewController storyboardIdentifier="BookListViewController" title="BookListViewController" id="a7e-iY-8NI" customClass="BookListViewController" customModule="TLDR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookListViewController" title="BookListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a7e-iY-8NI" customClass="BookListViewController" customModule="TLDR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M63-of-HnH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,7 +107,7 @@
         <!--ReviewListViewController-->
         <scene sceneID="q8d-xJ-23K">
             <objects>
-                <viewController storyboardIdentifier="ReviewListViewController" title="ReviewListViewController" id="eev-Ne-Nco" customClass="ReviewListViewController" customModule="TLDR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReviewListViewController" title="ReviewListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eev-Ne-Nco" customClass="ReviewListViewController" customModule="TLDR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MXP-Bv-ciP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,7 +159,7 @@
         <!--ReviewDetailViewController-->
         <scene sceneID="ATf-AH-cWg">
             <objects>
-                <viewController storyboardIdentifier="ReviewDetailViewController" title="ReviewDetailViewController" id="1pl-0q-Smv" customClass="ReviewDetailViewController" customModule="TLDR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReviewDetailViewController" title="ReviewDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1pl-0q-Smv" customClass="ReviewDetailViewController" customModule="TLDR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Wp-iN-RWF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,7 +219,7 @@
         <!--ReviewInputViewController-->
         <scene sceneID="7FQ-RW-cHX">
             <objects>
-                <viewController storyboardIdentifier="ReviewInputViewController" title="ReviewInputViewController" id="dAW-Rw-6CO" customClass="ReviewInputViewController" customModule="TLDR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReviewInputViewController" title="ReviewInputViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dAW-Rw-6CO" customClass="ReviewInputViewController" customModule="TLDR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="apG-cX-FWS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -293,7 +293,7 @@
         <!--BookDetailViewController-->
         <scene sceneID="Rd9-6L-yMa">
             <objects>
-                <viewController storyboardIdentifier="BookDetailViewController" title="BookDetailViewController" id="c6n-zt-hhz" customClass="BookDetailViewController" customModule="TLDR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookDetailViewController" title="BookDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c6n-zt-hhz" customClass="BookDetailViewController" customModule="TLDR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XDu-RK-DRJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -394,7 +394,7 @@
         <!--BookInputViewController-->
         <scene sceneID="TPB-hY-7Cx">
             <objects>
-                <viewController storyboardIdentifier="BookInputViewController" title="BookInputViewController" id="5BW-tu-vDE" customClass="BookInputViewController" customModule="TLDR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookInputViewController" title="BookInputViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5BW-tu-vDE" customClass="BookInputViewController" customModule="TLDR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HNt-qg-Icl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

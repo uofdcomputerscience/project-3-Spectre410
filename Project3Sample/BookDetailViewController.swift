@@ -12,7 +12,7 @@ class BookDetailViewController: UIViewController {
     
     @IBOutlet weak var largeImage: UIImageView!
     
-    var service = ReviewService()
+    var service: ReviewService()
     var bookID: Int?
     var reviewList: [Review] = []
     
@@ -43,6 +43,8 @@ class BookDetailViewController: UIViewController {
     }
     @IBAction func reviewTapped(_ sender: Any) {
         let inputReview = storyboard?.instantiateViewController(withIdentifier: "ReviewInputViewController")
+        inputReview.service = service
+        navigationController?.pushViewController(inputReview, animated: true)
         
     }
     
