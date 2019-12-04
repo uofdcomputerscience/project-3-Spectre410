@@ -9,26 +9,46 @@
 import UIKit
 
 class BookListViewController: UIViewController {
+    
     @IBOutlet weak var bookTableView: UITableView!
+    
     let service = BookService()
+    
+    var bookList: [Book] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         service.fetchBooks {
-            <#code#>
+            DispatchQueue.main.async {
+                self.bookList = self.service.books
+                self.bookTableView.reloadData()
+            }
         }
         bookTableView.dataSource = self
         bookTableView.delegate = self
     }
     
+    @IBAction func bookInputTapped(_ sender: Any) {
+        let input = storyboard?.instantiateViewController(withIdentifier: "BookInputViewController")
+        input.service = service
+        navigationController?.pushViewController(input, animated: true)
+    }
     
+    @IBAction func refreshTapped(_ sender: Any) {
+        service.fetchBooks {
+            DispatchQueue.main.async {
+                self.bookList = self.service.books
+                self.bookTableView.reloadData()
+            }
+        }
+    }
     
     
 }
 
 extension BookListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return service.books.count
+        return bookList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,7 +60,7 @@ extension BookListViewController: UITableViewDataSource {
 
 extension BookListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedObject = service.books[indexPath.item]
+        let selectedObject = self.bookList[indexPath.item]
         let detail = storyboard?.instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
         // detail.titleLabel.text = selectedObject.name
         //  service.getImage(for: selectedObject.imageURL) { (url, image) in

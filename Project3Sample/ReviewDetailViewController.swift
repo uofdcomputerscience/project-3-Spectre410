@@ -10,8 +10,11 @@ import UIKit
 
 class ReviewDetailViewController: UIViewController {
     
-    
-    
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var reviewerLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     
 }
