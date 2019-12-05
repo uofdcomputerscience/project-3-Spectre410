@@ -10,7 +10,7 @@ import UIKit
 
 class ReviewInputViewController: UIViewController {
     
-    var service: ReviewService()?
+    var service: ReviewService?
     var bookID: Int = 0
     @IBOutlet weak var titleInput: UITextField!
     

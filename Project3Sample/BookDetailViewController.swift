@@ -12,7 +12,7 @@ class BookDetailViewController: UIViewController {
     
     @IBOutlet weak var largeImage: UIImageView!
     
-    var service: ReviewService()
+    var service = ReviewService()
     var bookID: Int?
     var reviewList: [Review] = []
     
@@ -29,8 +29,9 @@ class BookDetailViewController: UIViewController {
         reviewTable.delegate = self
         reviewTable.dataSource = self
         DispatchQueue.main.async {
-            service.fetchReviews(completion: nil)
-            self.reviewTable.reloadData()
+            self.service.fetchReviews {
+                self.reviewTable.reloadData()
+            }
         }
         for rev in service.reviews {
             if rev.id == bookID {
@@ -42,7 +43,7 @@ class BookDetailViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func reviewTapped(_ sender: Any) {
-        let inputReview = storyboard?.instantiateViewController(withIdentifier: "ReviewInputViewController")
+        let inputReview = storyboard?.instantiateViewController(withIdentifier: "ReviewInputViewController") as! ReviewInputViewController
         inputReview.service = service
         navigationController?.pushViewController(inputReview, animated: true)
         

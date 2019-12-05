@@ -10,7 +10,7 @@ import UIKit
 
 class BookInputViewController: UIViewController {
     
-    var service: BookService()?
+    var service: BookService?
     
     @IBOutlet weak var bookTitleInput: UITextField!
     

@@ -29,7 +29,7 @@ class BookListViewController: UIViewController {
     }
     
     @IBAction func bookInputTapped(_ sender: Any) {
-        let input = storyboard?.instantiateViewController(withIdentifier: "BookInputViewController")
+        let input = storyboard?.instantiateViewController(withIdentifier: "BookInputViewController") as! BookInputViewController
         input.service = service
         navigationController?.pushViewController(input, animated: true)
     }
@@ -53,7 +53,14 @@ extension BookListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell", for: indexPath) as! BookTableViewCell
-        
+        let selectedObject = bookList[indexPath.item]
+        cell.titleLabel.text = selectedObject.title
+        cell.authorLabel.text = selectedObject.author
+        DispatchQueue.main.async {
+            self.service.image(for: selectedObject, completion: { (book, image) in
+                cell.bookImage.image = image
+            })
+        }
         return cell
     }
 }
@@ -62,16 +69,7 @@ extension BookListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedObject = self.bookList[indexPath.item]
         let detail = storyboard?.instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
-        // detail.titleLabel.text = selectedObject.name
-        //  service.getImage(for: selectedObject.imageURL) { (url, image) in
-        //   DispatchQueue.main.async {
-        //  detail.largeImage = image
-        //  }
-        // }
-        //detail.initialTitle = selectedObject.name
-        //detail.initialURL = selectedObject.imageURL
-        //detail.service = service
-        
+        detail.bookID = selectedObject.id
         navigationController?.pushViewController(detail, animated: true)
     }
 }
