@@ -14,13 +14,11 @@ class BookListViewController: UIViewController {
     
     let service = BookService()
     
-    var bookList: [Book] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         service.fetchBooks {
             DispatchQueue.main.async {
-                self.bookList = self.service.books
                 self.bookTableView.reloadData()
             }
         }
@@ -37,7 +35,6 @@ class BookListViewController: UIViewController {
     @IBAction func refreshTapped(_ sender: Any) {
         service.fetchBooks {
             DispatchQueue.main.async {
-                self.bookList = self.service.books
                 self.bookTableView.reloadData()
             }
         }
@@ -48,12 +45,12 @@ class BookListViewController: UIViewController {
 
 extension BookListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookList.count
+        return service.books.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell", for: indexPath) as! BookTableViewCell
-        let selectedObject = bookList[indexPath.item]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell") as! BookTableViewCell
+        let selectedObject = service.books[indexPath.item]
         cell.titleLabel.text = selectedObject.title
         cell.authorLabel.text = selectedObject.author
         DispatchQueue.main.async {
@@ -67,7 +64,7 @@ extension BookListViewController: UITableViewDataSource {
 
 extension BookListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedObject = self.bookList[indexPath.item]
+        let selectedObject = service.books[indexPath.item]
         let detail = storyboard?.instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
         detail.bookID = selectedObject.id
         navigationController?.pushViewController(detail, animated: true)

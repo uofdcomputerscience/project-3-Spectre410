@@ -14,6 +14,7 @@ class BookDetailViewController: UIViewController {
     
     var service = ReviewService()
     var bookID: Int?
+    
     var reviewList: [Review] = []
     
     @IBOutlet weak var bookTitle: UILabel!
@@ -28,8 +29,9 @@ class BookDetailViewController: UIViewController {
         super.viewDidLoad()
         reviewTable.delegate = self
         reviewTable.dataSource = self
-        DispatchQueue.main.async {
-            self.service.fetchReviews {
+        
+        self.service.fetchReviews {
+            DispatchQueue.main.async {
                 self.reviewTable.reloadData()
             }
         }
