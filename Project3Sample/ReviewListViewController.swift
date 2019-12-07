@@ -21,16 +21,19 @@ class ReviewListViewController: UIViewController {
         super.viewDidLoad()
         reviewTable.delegate = self
         reviewTable.dataSource = self
-        DispatchQueue.main.async {
-            self.service.fetchReviews {
+        
+        self.service.fetchReviews {
+            DispatchQueue.main.async {
                 self.reviewList = self.service.reviews
                 self.reviewTable.reloadData()
             }
+            
         }
     }
-    
-    
 }
+    
+    
+
 
 extension ReviewListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
