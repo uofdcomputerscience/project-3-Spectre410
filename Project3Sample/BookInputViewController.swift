@@ -23,9 +23,7 @@ class BookInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    @IBAction func returnTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
+
     
     @IBAction func submitTapped(_ sender: Any) {
         

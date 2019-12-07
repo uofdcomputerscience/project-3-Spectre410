@@ -20,10 +20,7 @@ class ReviewInputViewController: UIViewController {
     
     
     
-    @IBAction func returnTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
+
     @IBAction func submitTapped(_ sender: Any) {
         
         let title = titleInput.text!
