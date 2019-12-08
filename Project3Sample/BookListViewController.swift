@@ -53,11 +53,11 @@ extension BookListViewController: UITableViewDataSource {
         let selectedObject = service.books[indexPath.item]
         cell.titleLabel.text = selectedObject.title
         cell.authorLabel.text = selectedObject.author
-        DispatchQueue.main.async {
-            self.service.image(for: selectedObject, completion: { (book, image) in
+        service.image(for: selectedObject, completion: { (book, image) in
+            DispatchQueue.main.async {
                 cell.bookImage.image = image
-            })
-        }
+            }
+        })
         return cell
     }
 }
@@ -67,6 +67,15 @@ extension BookListViewController: UITableViewDelegate {
         let selectedObject = service.books[indexPath.item]
         let detail = storyboard?.instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
         detail.bookID = selectedObject.id
+        detail.initialTitle = selectedObject.title
+        detail.author = selectedObject.author
+        detail.published = selectedObject.published
+        service.image(for: selectedObject) { (book, image) in
+            DispatchQueue.main.async {
+                detail.image = image
+            }
+        }
         navigationController?.pushViewController(detail, animated: true)
+        
     }
 }

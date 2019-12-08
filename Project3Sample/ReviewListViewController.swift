@@ -40,11 +40,13 @@ extension ReviewListViewController: UITableViewDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEEE, MMM d, yyyy"
         
-        detail.idLabel.text = String(selectedObject.bookId)
-        detail.reviewerLabel.text = selectedObject.reviewer
-        detail.dateLabel.text = formatter.string(from: selectedObject.date!)
-        detail.titleLabel.text = selectedObject.title
-        detail.textView.text = selectedObject.body
+        detail.ID = String(selectedObject.bookId)
+        detail.reviewee = selectedObject.reviewer
+        if let a = selectedObject.date {
+            detail.date = formatter.string(from: a)
+        }
+        detail.reviewTitle = selectedObject.title
+        detail.bodyText = selectedObject.body
         
         
         

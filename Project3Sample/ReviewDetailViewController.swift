@@ -16,5 +16,19 @@ class ReviewDetailViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
     
+    var ID: String?
+    var reviewee: String?
+    var reviewTitle: String?
+    var bodyText: String?
+    var date: String?
     
+    override func viewDidLoad() {
+        idLabel.text = ID
+        reviewerLabel.text = reviewee
+        titleLabel.text = reviewTitle
+        textView.text = bodyText
+        dateLabel.text = date
+        
+        super.viewDidLoad()
+    }
 }

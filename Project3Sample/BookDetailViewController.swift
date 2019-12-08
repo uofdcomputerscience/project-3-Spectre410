@@ -14,7 +14,10 @@ class BookDetailViewController: UIViewController {
     
     var service = ReviewService()
     var bookID: Int?
-    
+    var initialTitle: String?
+    var author: String?
+    var published: String?
+    var image: UIImage?
     var reviewList: [Review] = []
     
     @IBOutlet weak var bookTitle: UILabel!
@@ -26,7 +29,12 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var reviewTable: UITableView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
+        bookTitle.text = initialTitle
+        authorLabel.text = author
+        publishedLabel.text = published
+        largeImage.image = image
+        
         reviewTable.delegate = self
         reviewTable.dataSource = self
         
@@ -81,8 +89,9 @@ extension BookDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = reviewTable.dequeueReusableCell(withIdentifier: "ReviewTableViewCell") as! ReviewTableViewCell
-        cell.reviewTitle.text = reviewList[indexPath.item].title
-        cell.reviewer.text = reviewList[indexPath.item].reviewer
+        let rev = reviewList[indexPath.item]
+        cell.reviewTitle.text = rev.title
+        cell.reviewer.text = rev.reviewer
         return cell
     }
     
