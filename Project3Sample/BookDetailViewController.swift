@@ -49,9 +49,6 @@ class BookDetailViewController: UIViewController {
             }
         }
     }
-    @IBAction func returnTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
     @IBAction func reviewTapped(_ sender: Any) {
         let inputReview = storyboard?.instantiateViewController(withIdentifier: "ReviewInputViewController") as! ReviewInputViewController
         inputReview.service = service
@@ -73,11 +70,7 @@ extension BookDetailViewController: UITableViewDelegate {
         detail.dateLabel.text = formatter.string(from: selectedObject.date!)
         detail.titleLabel.text = selectedObject.title
         detail.textView.text = selectedObject.body
-        
-        
-        
     
-        
         navigationController?.pushViewController(detail, animated: true)
     }
 }
