@@ -39,13 +39,13 @@ class BookDetailViewController: UIViewController {
         reviewTable.dataSource = self
         
         self.service.fetchReviews {
+            for rev in self.service.reviews {
+                if rev.id == self.bookID {
+                    self.reviewList.append(rev)
+                }
+            }
             DispatchQueue.main.async {
                 self.reviewTable.reloadData()
-            }
-        }
-        for rev in service.reviews {
-            if rev.id == bookID {
-                reviewList.append(rev)
             }
         }
     }
